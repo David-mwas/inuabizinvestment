@@ -1,6 +1,79 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Inter;
+  font-family: Inter, Verdana, Geneva, Tahoma, sans-serif;
+  background: #f5f5f5;
+  overflow-x: hidden;
+}
+
+.smooth {
+  transition: all 3s ease-in-out;
+}
+@font-face {
+  font-family: Lemon;
+  src: url("./assets/fonts/lobster/Lobster-Regular.ttf");
+}
+ul li a {
+  text-transform: uppercase;
+  transition: all 0.1s ease-in-out;
+  position: relative;
+  font-size: 14px;
+  font-weight: semibold;
+}
+
+ul li a::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  top: 20px;
+  left: 0;
+  background-color: white;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+ul li a:hover::before {
+  width: 100%;
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.font {
+  font-family: Lemon;
+  /* -webkit-text-stroke: 1.4px; */
+  /* -webkit-text-stroke-color: white; */
+}
+/* Customize the scrollbar track */
+::-webkit-scrollbar {
+  width: 4px; /* Set the width of the scrollbar */
+}
+
+/* Customize the scrollbar handle (thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: #9ae9e9; /* Set the color of the scrollbar thumb */
+  border-radius: 6px; /* Set the border-radius for a rounded thumb */
+}
+
+/* Customize the scrollbar track when not actively scrolling */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Set the color of the scrollbar track */
+}
+
+/* Customize the scrollbar handle when hovered over */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #217dbb; /* Set a different color when hovered over */
+}
+
+/* Customize the scrollbar corner (if applicable) */
+::-webkit-scrollbar-corner {
+  background-color: #f1f1f1; /* Set the color of the scrollbar corner */
 }
