@@ -11,11 +11,11 @@ function Sidebar({ isMenuOpen, toggleMenu }) {
   return (
     <>
       {isMenuOpen && (
-        <div className="w-screen h-screen flex justify-center text-center absolute z-[999] top-[71px]">
+        <div className="w-screen h-screen flex justify-center text-center fixed z-[999] top-[71px]">
           <ul
-            className={`bg-[rgba(0,0,123,.95)] text-white h-[50%] w-[100%] pt-20 flex-col flex items-center justify-center gap-6 rounded-b-3xl md:hidden shadow shadow-black`}
+            className={`bg-[rgba(0,0,123,.95)] text-white h-[50%] w-[100%] pt-2 flex-col flex items-center justify-center gap-6 rounded-b-3xl md:hidden shadow shadow-black`}
           >
-            <div className="px-4 py-2 mt-4 flex gap-2">
+            <div className="px-4 py-2  flex gap-2">
               <h1 className="font-semibold text-xl">Ryan</h1>
               <p className="flex items-center gap-1 text-sm">
                 <p>active</p>{" "}
@@ -37,8 +37,8 @@ function Sidebar({ isMenuOpen, toggleMenu }) {
 
             <li className="text-white font-bold flex gap-2 items-center justify-center">
               <FaPhone />
-              <a href="#contact" onClick={toggleMenu}>
-                Contact
+              <a href="" onClick={toggleMenu}>
+                Tell 0789624130
               </a>
             </li>
             <li className="text-white font-bold flex gap-2 items-center justify-center">

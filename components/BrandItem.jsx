@@ -3,7 +3,7 @@ import Logo from "../public/logo.png";
 import { RxTriangleUp } from "react-icons/rx";
 function BrandItem({ image, title }) {
   return (
-    <div className="flex-1  bg-white shadow-xl  rounded-3xl justify-center items-center flex flex-col p-6">
+    <div className="flex-1  bg-white shadow-xl  rounded-3xl justify-center items-center flex flex-col p-6 hover:scale-105">
       <img
         src={image}
         className="w-[40px] h-[40px] object-cover rounded-full "

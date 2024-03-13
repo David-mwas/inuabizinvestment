@@ -17,7 +17,7 @@ function HomePage() {
       <Sidebar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       <div className="w-ful flex flex-col md:flex-row">
         <FullScreenSidebar />
-        <div className="w-full flex flex-col justify-center md:ml-[250px]">
+        <div className="w-full flex flex-col justify-center md:ml-[200px]">
           <div className="w-full md:p-6 flex items-center justify-center p-2 mt-2 flex-col gap-2 ">
             <Progress />
           </div>
