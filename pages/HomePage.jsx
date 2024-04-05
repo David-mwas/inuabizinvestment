@@ -33,13 +33,15 @@ function HomePage() {
             Authorization: `Bearer ${token}`,
           },
         });
+        const data = await response.json();
         if (response.status == 200) {
-          const data = await response.json();
           setUserData(data);
           console.log(data);
           toast.success(`Hello, ${data?.firstname}`);
           console.log("logged in successfully");
         }
+        console.log(response);
+        console.log(data);
       } catch (error) {
         toast.error(error);
         console.error(error);
