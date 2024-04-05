@@ -19,38 +19,35 @@ function HomePage() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+  if (!token) {
+    window.location.replace("/login");
+  }
   useEffect(() => {
-    if (!token) {
-      window.location.replace("/login");
-    }
-    const handleLogin = async (e) => {
-      try {
-        const response = await fetch(`${apiKey}/user/profile`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        const data = await response.json();
-        if (response.status == 200) {
-          setUserData(data);
-          console.log(data);
-          toast.success(`Hello, ${data?.firstname}`);
-          console.log("logged in successfully");
-        }
-        console.log(response);
+    handleLogin();
+  }, []);
+  const handleLogin = async () => {
+    try {
+      const response = await fetch(`${apiKey}/user/profile`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await response.json();
+      if (response?.status == 200) {
+        setUserData(data);
         console.log(data);
-      } catch (error) {
-        toast.error(error);
-        console.error(error);
+        toast.success(`Hello, ${data?.firstname}`);
+        console.log("logged in successfully");
       }
-    };
-    return () => {
-      handleLogin();
-    };
-  }, [token]);
+      console.log(response);
+      console.log(data);
+    } catch (error) {
+      toast.error(error);
+      console.error(error);
+    }
+  };
   console.log(userData);
   return (
     <>
