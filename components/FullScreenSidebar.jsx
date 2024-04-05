@@ -7,7 +7,9 @@ import {
   FaUser,
 } from "react-icons/fa";
 
+
 function FullScreenSidebar() {
+ 
   return (
     <>
       <div className=" h-screen md:flex text-center hidden  w-[250px] mt-[71px] fixed">

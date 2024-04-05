@@ -9,12 +9,23 @@ import {
   FaUser,
 } from "react-icons/fa";
 import Logo from "../public/logo.png";
+import useAuthToken from "../hooks/useAuth";
+import toast, { Toaster } from "react-hot-toast";
 // import { motion } from "framer-motion";
 // import { Link } from "react-router-dom";
 
-const Header = ({ toggleMenu, isMenuOpen }) => {
+const Header = ({ toggleMenu, isMenuOpen, userName }) => {
+  const { clearAuthToken } = useAuthToken();
+  const handleLogout = () => {
+    clearAuthToken();
+    toast.success("logged out successfully");
+    window.location.replace("/login");
+    console.log("logged out successfully");
+  };
   return (
-    <header
+    <>
+      <Toaster />
+       <header
       // initial={{ y: -100, opacity: 0 }}
       // animate={{ y: 0, opacity: 1 }}
       // transition={{
@@ -49,19 +60,23 @@ const Header = ({ toggleMenu, isMenuOpen }) => {
       </div>
       <div className="md:flex gap-2 items-center justify-center hidden">
         <div className="px-4 py-4 ml-8 flex gap-2">
-          <h1 className="font-semibold text-xl">Ryan</h1>
-          <p className="flex items-center gap-1 text-sm">
+          <h1 className="font-semibold text-xl">{userName}</h1>
+          <div className="flex items-center gap-1 text-sm">
             <p>active</p>{" "}
             <p className="w-[10px] h-[10px] bg-green-400 rounded-full"></p>
-          </p>
+          </div>
         </div>
         <div className="hidden md:block ">
-          <button className="bg-blue-500 px-6 py-[7px] rounded-2xl flex gap-2 shadow shadow-black">
+          <button
+            onClick={handleLogout}
+            className="bg-blue-500 px-6 py-[7px] rounded-2xl flex gap-2 shadow shadow-black"
+          >
             <span> Logout</span> <FaSignOutAlt className="h-6 w-4" />
           </button>
         </div>
       </div>
     </header>
+    </>
   );
 };
 

@@ -14,12 +14,12 @@ function BrandItem({ image, title }) {
         <h4 className="flex">
           <p className="font-semibold">KSH</p> : 100
         </h4>
-        <p className="text-green-500 flex gap-1 font-bold  ">
+        <div className="text-green-500 flex gap-1 font-bold  ">
           <p>
             <RxTriangleUp className="w-8 h-8" />
           </p>
           <p>8.01%</p>
-        </p>
+        </div>
       </div>
       <div className=" text-center flex flex-col items-center justify-center w-full">
         <p>Daily: Return</p>
