@@ -49,7 +49,7 @@ function HomePage() {
       handleLogin();
     };
   }, [token]);
-  console.log(apiKey);
+  console.log(userData);
   return (
     <>
       <Toaster />
